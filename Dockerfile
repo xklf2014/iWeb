@@ -12,7 +12,7 @@ RUN rm -f /usr/local/tomcat/webapps/ROOT.war
 ADD target/ROOT.war /usr/local/tomcat/webapps
 
 #对外暴露8080端口
-EXPOSE 8080
+EXPOSE 18081
 
 #等于执行 catalina.sh run
 CMD ["/usr/local/tomcat/bin/catalina.sh","run"]

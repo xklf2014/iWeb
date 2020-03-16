@@ -1,6 +1,6 @@
 stage('pull source code') {
     node('master'){
-        git([url: 'git@github.com:princeqjzh/iWeb.git', branch: 'master'])
+        git([url: 'https://github.com/xklf2014/iWeb.git', branch: 'master'])
     }
 }
 
@@ -10,8 +10,8 @@ stage('maven compile & package') {
         sh ". ~/.bash_profile"
 
         //定义maven java环境
-        def mvnHome = tool 'maven-3.6.0_master'
-        def jdkHome = tool 'jdk1.8_master'
+        def mvnHome = tool '/mydata/maven/apache-maven-3.6.3'
+        def jdkHome = tool '/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.242.b08-0.el7_7.x86_64'
         env.PATH = "${mvnHome}/bin:${env.PATH}"
         env.PATH = "${jdkHome}/bin:${env.PATH}"
         sh "mvn clean install"
