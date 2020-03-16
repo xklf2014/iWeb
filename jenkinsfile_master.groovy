@@ -7,11 +7,10 @@ stage('pull source code') {
 stage('maven compile & package') {
     node('master'){
         sh ". /etc/profile"
-        sh ". ~/.bash_profile"
 
         //定义maven java环境
         def mvnHome = tool '/mydata/maven/apache-maven-3.6.3'
-        def jdkHome = tool '/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.242.b08-0.el7_7.x86_64'
+        def jdkHome = tool '/usr/lib/jvm/java'
         env.PATH = "${mvnHome}/bin:${env.PATH}"
         env.PATH = "${jdkHome}/bin:${env.PATH}"
         sh "mvn clean install"
