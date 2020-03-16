@@ -9,8 +9,8 @@ stage('maven compile & package') {
         sh ". /etc/profile"
 
         //定义maven java环境
-        def mvnHome = tool '/mydata/maven/apache-maven-3.6.3'
-        def jdkHome = tool '/usr/lib/jvm/java'
+        def mvnHome = tool 'jdk1.8'
+        def jdkHome = tool 'apache-maven-3.6.3'
         env.PATH = "${mvnHome}/bin:${env.PATH}"
         env.PATH = "${jdkHome}/bin:${env.PATH}"
         sh "mvn clean install"
